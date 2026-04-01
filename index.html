@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaMind AI — We Build the Future. Automated.</title>
+  <meta name="description" content="NovaMind AI is a cutting-edge AI automation and web design agency. We build futuristic digital experiences, automate business processes, and drive growth with AI-powered strategies.">
+  
+  <!-- SEO & OpenGraph -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2300F5FF'>◆</text></svg>">
+  <meta property="og:title" content="NovaMind AI | Future-Ready Automation & Web Design">
+  <meta property="og:description" content="A dark luxury tech agency from the future. We build automated systems and stunning web experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://novamind.ai">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630/0A0A0F/00F5FF?text=NovaMind+AI">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Splash Screen -->
+  <div class="splash-screen" id="splashScreen">
+    <div class="splash-logo">
+      <span class="splash-letter">N</span>
+      <span class="splash-letter">M</span>
+    </div>
+    <div class="splash-tagline">NovaMind AI</div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon">◆</span>
+        <span class="logo-text">NovaMind<span class="logo-ai">AI</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Our Work</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact" class="nav-cta-btn">Start a Project</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer-content">
+      <ul class="drawer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Our Work</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="drawer-cta">Start a Project</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <canvas class="particle-canvas" id="particleCanvas"></canvas>
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="hero-content">
+      <h1 class="hero-headline" id="heroHeadline">
+        <span class="hero-word">We</span>
+        <span class="hero-word">Build</span>
+        <span class="hero-word">the</span>
+        <span class="hero-word gradient-text">Future.</span>
+        <span class="hero-word gradient-text">Automated.</span>
+      </h1>
+      <p class="hero-sub">AI Automation · Web Experiences · Digital Transformation</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary" id="heroBtn1">Start a Project</a>
+        <a href="#portfolio" class="btn btn-outline" id="heroBtn2">See Our Work</a>
+      </div>
+    </div>
+    <div class="hero-badge" id="heroBadge">
+      <svg viewBox="0 0 200 200" class="badge-svg">
+        <defs>
+          <path id="circlePath" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/>
+        </defs>
+        <text>
+          <textPath href="#circlePath" class="badge-text">✦ Now Accepting Clients · ✦ Now Accepting Clients · </textPath>
+        </text>
+      </svg>
+      <span class="badge-center">✦</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-text">
+        <p class="section-label">Who We Are</p>
+        <h2 class="about-tagline">"Two builders. One mission.<br><span class="gradient-text">Infinite automation.</span>"</h2>
+        <p class="about-description">We're NovaMind AI — a next-gen agency born at the intersection of artificial intelligence and world-class design. We don't just build websites; we engineer digital ecosystems that think, adapt, and scale. Our mission is simple: to turn your boldest ideas into automated realities that work while you sleep.</p>
+        <p class="about-description">Founded by two visionaries who believe the future belongs to those who automate it, we combine cutting-edge AI with premium web experiences to give your business an unfair advantage.</p>
+      </div>
+      <div class="about-visual">
+        <div class="morph-blob" id="morphBlob"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack (Built With) Section -->
+  <div class="tech-stack-strip">
+    <div class="tech-track" id="techTrack">
+      <!-- Logic in JS duplicates these to roll infinitely -->
+      <span class="tech-item">OpenAI GPT-4</span><span class="tech-dot">•</span>
+      <span class="tech-item">Make.com</span><span class="tech-dot">•</span>
+      <span class="tech-item">n8n</span><span class="tech-dot">•</span>
+      <span class="tech-item">React / Next.js</span><span class="tech-dot">•</span>
+      <span class="tech-item">Zapier</span><span class="tech-dot">•</span>
+      <span class="tech-item">Webflow</span><span class="tech-dot">•</span>
+      <span class="tech-item">Figma</span><span class="tech-dot">•</span>
+      <span class="tech-item">Python</span><span class="tech-dot">•</span>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="section-label center">Our Expertise</p>
+      <h2 class="section-heading center">What We <span class="gradient-text">Do</span></h2>
+      <div class="services-grid">
+        <div class="service-card" data-animate="stagger">
+          <div class="card-glow-border"></div>
+          <div class="card-inner">
+            <div class="card-icon">🤖</div>
+            <h3 class="card-title">AI Automation</h3>
+            <p class="card-desc">Intelligent chatbots, workflow automation, and seamless AI integrations that supercharge your operations and free your team to focus on what matters.</p>
+          </div>
+        </div>
+        <div class="service-card" data-animate="stagger">
+          <div class="card-glow-border"></div>
+          <div class="card-inner">
+            <div class="card-icon">🌐</div>
+            <h3 class="card-title">Website Design & Development</h3>
+            <p class="card-desc">Lightning-fast, visually stunning, conversion-focused websites that don't just look good — they perform. Every pixel, purposeful.</p>
+          </div>
+        </div>
+        <div class="service-card" data-animate="stagger">
+          <div class="card-glow-border"></div>
+          <div class="card-inner">
+            <div class="card-icon">⚙️</div>
+            <h3 class="card-title">Business Process Automation</h3>
+            <p class="card-desc">Eliminate repetitive tasks, save hundreds of hours, and streamline your operations with intelligent automation systems built for scale.</p>
+          </div>
+        </div>
+        <div class="service-card" data-animate="stagger">
+          <div class="card-glow-border"></div>
+          <div class="card-inner">
+            <div class="card-icon">📈</div>
+            <h3 class="card-title">Growth & Strategy</h3>
+            <p class="card-desc">Data-driven digital strategies powered by AI analytics. We turn insights into action and traffic into revenue.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Services Deep Dive -->
+      <div class="services-deep-dive">
+        
+        <!-- Row 1: AI Automation -->
+        <div class="deep-dive-row odd">
+          <div class="dd-content slide-in-left">
+            <div class="dd-bg-number">01</div>
+            <h3 class="dd-title">AI Automation</h3>
+            <p class="dd-desc">Transform your business logic into autonomous systems. We build intelligent agents that handle support, qualify leads, and orchestrate complex tasks 24/7 without human intervention.</p>
+            <ul class="dd-bullets">
+              <li><span class="bullet-dot">◆</span> GPT-4 Omni & Claude 3.5 Sonnet integrations</li>
+              <li><span class="bullet-dot">◆</span> Custom 24/7 AI Customer Support Agents</li>
+              <li><span class="bullet-dot">◆</span> Autonomous Lead Qualification Pipelines</li>
+              <li><span class="bullet-dot">◆</span> Vector Database (RAG) knowledge retrieval</li>
+            </ul>
+          </div>
+          <div class="dd-card-wrapper slide-in-right">
+            <div class="dd-card">
+              <div class="card-glow-border"></div>
+              <div class="dd-card-inner">
+                <div class="dd-icon pulse-glow">🤖</div>
+                <div class="dd-badge">Most Popular</div>
+                <h4 class="dd-price-label">Starting From</h4>
+                <div class="dd-price">$2,499</div>
+                <a href="#contact" class="btn-text">Discuss Scope →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dd-separator"></div>
+
+        <!-- Row 2: Web Design -->
+        <div class="deep-dive-row even">
+          <div class="dd-card-wrapper slide-in-left">
+            <div class="dd-card">
+              <div class="card-glow-border"></div>
+              <div class="dd-card-inner">
+                <div class="dd-icon pulse-glow">🌐</div>
+                <div class="dd-badge violet">High-End Quality</div>
+                <h4 class="dd-price-label">Starting From</h4>
+                <div class="dd-price">$4,000</div>
+                <a href="#contact" class="btn-text">Discuss Scope →</a>
+              </div>
+            </div>
+          </div>
+          <div class="dd-content slide-in-right">
+            <div class="dd-bg-number text-right">02</div>
+            <h3 class="dd-title">Web Design &amp; Dev</h3>
+            <p class="dd-desc">We craft digital experiences that look like tomorrow. High-performance, meticulously animated, fully responsive sites engineered strictly for high-converting user journeys.</p>
+            <ul class="dd-bullets">
+              <li><span class="bullet-dot">◆</span> React, Next.js, and Webflow development</li>
+              <li><span class="bullet-dot">◆</span> High-end GSAP micro-animations &amp; 3D canvas</li>
+              <li><span class="bullet-dot">◆</span> 95+ Core Web Vitals performance score</li>
+              <li><span class="bullet-dot">◆</span> Built-in conversion rate optimization (CRO)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dd-separator"></div>
+
+        <!-- Row 3: Process Automation -->
+        <div class="deep-dive-row odd">
+          <div class="dd-content slide-in-left">
+            <div class="dd-bg-number">03</div>
+            <h3 class="dd-title">Process Automation</h3>
+            <p class="dd-desc">Stop doing manual data entry. We connect your entire tech stack together so tools talk to each other seamlessly, saving you hundreds of human work hours every single month.</p>
+            <ul class="dd-bullets">
+              <li><span class="bullet-dot">◆</span> Complex Make.com &amp; n8n workflow scenarios</li>
+              <li><span class="bullet-dot">◆</span> CRM (HubSpot, Salesforce) zero-touch syncing</li>
+              <li><span class="bullet-dot">◆</span> Automated invoice &amp; contract generation</li>
+              <li><span class="bullet-dot">◆</span> Custom API webhook development</li>
+            </ul>
+          </div>
+          <div class="dd-card-wrapper slide-in-right">
+            <div class="dd-card">
+              <div class="card-glow-border"></div>
+              <div class="dd-card-inner">
+                <div class="dd-icon pulse-glow">⚙️</div>
+                <div class="dd-badge cyan">High ROI</div>
+                <h4 class="dd-price-label">Starting From</h4>
+                <div class="dd-price">$1,800</div>
+                <a href="#contact" class="btn-text">Discuss Scope →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Work / Portfolio (NEW) -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <p class="section-label center">Proven Results</p>
+      <h2 class="section-heading center">Our <span class="gradient-text">Work</span></h2>
+      <div class="portfolio-grid">
+        <!-- Project 1 -->
+        <div class="portfolio-card">
+          <div class="port-image-wrapper">
+            <div class="mockup-placeholder gradient-bg-1"></div>
+            <div class="port-tag">Web Design + AI</div>
+          </div>
+          <div class="port-content">
+            <h3 class="port-title">Lumina SaaS Platform</h3>
+            <p class="port-desc">A complete brand overhaul matched with an AI-driven onboarding funnel.</p>
+            <div class="port-result">
+              <span class="result-number">+312%</span>
+              <span class="result-label">Conversion Rate</span>
+            </div>
+          </div>
+          <div class="card-glow-border"></div>
+        </div>
+        <!-- Project 2 -->
+        <div class="portfolio-card">
+          <div class="port-image-wrapper">
+            <div class="mockup-placeholder gradient-bg-2"></div>
+            <div class="port-tag">AI Automation</div>
+          </div>
+          <div class="port-content">
+            <h3 class="port-title">Nexus Logistics Auto-Dispatch</h3>
+            <p class="port-desc">Replaced manual dispatching with a 24/7 autonomous Make.com workflow.</p>
+            <div class="port-result">
+              <span class="result-number">40hrs</span>
+              <span class="result-label">Saved Per Week</span>
+            </div>
+          </div>
+          <div class="card-glow-border"></div>
+        </div>
+        <!-- Project 3 -->
+        <div class="portfolio-card">
+          <div class="port-image-wrapper">
+            <div class="mockup-placeholder gradient-bg-3"></div>
+            <div class="port-tag">Web Experience</div>
+          </div>
+          <div class="port-content">
+            <h3 class="port-title">Aetheria Labs Site</h3>
+            <p class="port-desc">A high-end 3D animated web experience for a bleeding-edge biotech brand.</p>
+            <div class="port-result">
+              <span class="result-number">#1</span>
+              <span class="result-label">Awwwards SOTD</span>
+            </div>
+          </div>
+          <div class="card-glow-border"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process" id="process">
+    <div class="container">
+      <p class="section-label center">Our Process</p>
+      <h2 class="section-heading center">From Idea to <span class="gradient-text">Launch</span></h2>
+      <div class="timeline">
+        <div class="timeline-line" id="timelineLine"></div>
+        <div class="timeline-step" data-step="1">
+          <div class="step-marker">
+            <span class="step-number">01</span>
+          </div>
+          <div class="step-content">
+            <h3 class="step-title">Discovery Call</h3>
+            <p class="step-desc">We dive deep into your vision, goals, and challenges. No fluff — just sharp questions and genuine understanding of where you want to go.</p>
+          </div>
+        </div>
+        <div class="timeline-step" data-step="2">
+          <div class="step-marker">
+            <span class="step-number">02</span>
+          </div>
+          <div class="step-content">
+            <h3 class="step-title">Strategy & Design</h3>
+            <p class="step-desc">We map out the blueprint — from wireframes to system architecture. Every decision is intentional, every element designed for impact.</p>
+          </div>
+        </div>
+        <div class="timeline-step" data-step="3">
+          <div class="step-marker">
+            <span class="step-number">03</span>
+          </div>
+          <div class="step-content">
+            <h3 class="step-title">Build & Automate</h3>
+            <p class="step-desc">Our team brings the vision to life — pixel by pixel, function by function. AI integrations and automations are woven in from day one.</p>
+          </div>
+        </div>
+        <div class="timeline-step" data-step="4">
+          <div class="step-marker">
+            <span class="step-number">04</span>
+          </div>
+          <div class="step-content">
+            <h3 class="step-title">Launch & Scale</h3>
+            <p class="step-desc">Liftoff. We launch, monitor, optimize, and scale. Your project doesn't just go live — it goes further than you imagined.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team / Founders Section (NEW) -->
+  <section class="team" id="team">
+    <div class="container">
+      <p class="section-label center">The Visionaries</p>
+      <h2 class="section-heading center">Meet the <span class="gradient-text">Founders</span></h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar-wrapper">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #0A0A0F, #1A1A2F); border: 2px solid #00F5FF;">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="60" height="60" style="color: #00F5FF; opacity: 0.8;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+          </div>
+          <h3 class="team-name">Alex Vance</h3>
+          <p class="team-role">Co-Founder & Lead Web Engineer</p>
+          <p class="team-bio">Obsessed with pixel-perfection and performance. Alex engineers the lightning-fast front-ends that make jaws drop and conversion rates spike.</p>
+          <a href="#" class="team-social" aria-label="LinkedIn Profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar-wrapper">
+             <div class="team-avatar" style="background: linear-gradient(135deg, #0A0A0F, #1A1A2F); border: 2px solid #7B2FFF;">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="60" height="60" style="color: #7B2FFF; opacity: 0.8;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+          </div>
+          <h3 class="team-name">Marcus Reed</h3>
+          <p class="team-role">Co-Founder & AI Architect</p>
+          <p class="team-bio">The brain behind the bots. Marcus architects complex workflow automations and deploys intelligent agents that turn heavy operational costs into pure profit.</p>
+          <a href="#" class="team-social" aria-label="LinkedIn Profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number" data-value="50">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-value="100">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-value="10">0</span><span class="stat-suffix">x</span>
+          <span class="stat-label">Average ROI</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-value="48">0</span><span class="stat-suffix">hr</span>
+          <span class="stat-label">Turnaround Time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <p class="section-label center">Social Proof</p>
+      <h2 class="section-heading center">What Clients <span class="gradient-text">Say</span></h2>
+    </div>
+    <div class="testimonial-track-wrapper">
+      <div class="testimonial-track" id="testimonialTrack">
+        <!-- JS will duplicate the children to make infinite scroll seamless -->
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"NovaMind completely transformed our business. The AI chatbot they built handles 80% of our customer inquiries autonomously. Our response time went from hours to seconds."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #00F5FF, #7B2FFF);">JM</div>
+            <div>
+              <p class="author-name">James Mitchell</p>
+              <p class="author-company">CEO, TechStream Solutions</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The website they designed is pure art. We've seen a 300% increase in conversions since launch. It doesn't just look incredible — it performs beyond anything we expected."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #7B2FFF, #00F5FF);">SK</div>
+            <div>
+              <p class="author-name">Sarah Kim</p>
+              <p class="author-company">Founder, Lumina Brands</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"We saved 40+ hours per week with their automation systems. What used to take a full team now runs on autopilot. NovaMind is the best investment we've made."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #00F5FF, #7B2FFF);">DR</div>
+            <div>
+              <p class="author-name">David Reynolds</p>
+              <p class="author-company">COO, Scale Dynamics</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Working with NovaMind felt like having a Silicon Valley team at our fingertips. They understood our vision instantly and delivered something that exceeded every expectation."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #7B2FFF, #00F5FF);">AL</div>
+            <div>
+              <p class="author-name">Aisha Lopez</p>
+              <p class="author-company">Director, FutureWave Agency</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section (NEW) -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <p class="section-label center">Clear Answers</p>
+      <h2 class="section-heading center">Frequently Asked <span class="gradient-text">Questions</span></h2>
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How long does a website take to build?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+             <div class="faq-answer-inner">
+              Most standard high-end websites take between 3 to 6 weeks from strategy to go-live. For highly complex web apps or extensive animations, timelines are adjusted appropriately. We are extremely fast compared to traditional agencies.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What forms of AI Automation do you handle?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Everything from autonomous customer support chatbots trained on your company data, to fully automated backend workflows that sync CRMs, generate documents, and scrape web data using Make.com and n8n.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you work with international clients?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes, absolutely. We work with ambitious companies globally. We manage entirely asynchronously with clear communication paths and weekly syncs mapped to your timezone.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What's your pricing model?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We price purely based on value and scope. Our automation setups generally start at $1,800, and premium web design starts at $4,000. Book a call for a tailored proposal.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do you offer ongoing support?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. Both our websites and automation systems come with optional low-cost retainer plans ensuring continuous monitoring, minor updates, and scaling of operations as your business grows.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section (REPLACED CTA) -->
+  <section class="contact-section" id="contact">
+    <canvas class="mesh-canvas" id="meshCanvas"></canvas>
+    <div class="container contact-container">
+      <div class="contact-text">
+        <h2 class="cta-heading">Ready to Automate<br>Your <span class="gradient-text">Future?</span></h2>
+        <p class="cta-sub">Let's build something extraordinary together. Fill out the form, and our founders will get back to you within 24 hours.</p>
+      </div>
+      <div class="contact-form-wrapper">
+        <form class="contact-form" action="#" method="POST" id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="john@company.com">
+          </div>
+          <div class="form-group">
+            <label for="service">What do you need?</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select an option...</option>
+              <option value="web">Website Design & Dev</option>
+              <option value="ai">AI & Workflow Automation</option>
+              <option value="both">Both / Full Transformation</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project or goals..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-cta" id="submitBtn">
+            <span>Send Blueprint Inquiry</span>
+            <div class="btn-ripple"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-icon">◆</span>
+          <span class="logo-text">NovaMind<span class="logo-ai">AI</span></span>
+        </a>
+        <p class="footer-tagline">Engineering the future, one automation at a time.</p>
+      </div>
+      <div class="footer-nav">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Our Work</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4 class="footer-heading">Connect</h4>
+        <div class="social-icons">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 NovaMind AI. Built with AI. Powered by Vision.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
