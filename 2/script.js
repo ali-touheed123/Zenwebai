@@ -74,6 +74,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursorRing.style.opacity = '1';
             });
         });
+
+        // --- Weightless Text Hover Effect ---
+        const textSelectors = 'h1, h2, h3, h4, p, span, li, a, label, .hero-sub, .section-label, .card-title, .card-desc, .dd-title, .dd-desc, .port-title, .port-desc, .step-title, .step-desc, .team-name, .team-role, .team-bio, .faq-question span, .testimonial-quote, .cta-heading, .cta-sub, .footer-tagline, .stat-label';
+        const textElements = document.querySelectorAll(textSelectors);
+
+        textElements.forEach(el => {
+            // Skip elements inside buttons/links that already have hover styles
+            if (el.closest('.btn, .nav-cta-btn, .drawer-cta, .package-btn')) return;
+            // Skip form elements
+            if (el.closest('input, select, textarea, .form-group label')) return;
+
+            el.classList.add('zenith-text-hoverable');
+
+            el.addEventListener('mouseenter', () => {
+                el.classList.add('zenith-text-float');
+                cursorRing.classList.add('text-hover');
+            });
+
+            el.addEventListener('mouseleave', () => {
+                el.classList.remove('zenith-text-float');
+                cursorRing.classList.remove('text-hover');
+            });
+        });
     }
 
     // --- Navbar Scroll & Mobile Menu ---

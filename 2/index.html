@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZenithAI & Web Craft — Where Intelligent Automation Meets Elite Web Craft.</title>
-  <meta name="description" content="ZenithAI & Web Craft is a cutting-edge AI services and web design agency. We build futuristic digital experiences, automate business processes, and drive growth with AI-powered strategies.">
-  
+  <meta name="description"
+    content="ZenithAI & Web Craft is a cutting-edge AI services and web design agency. We build futuristic digital experiences, automate business processes, and drive growth with AI-powered strategies.">
+
   <!-- SEO & OpenGraph -->
   <!-- Circular Favicon via Canvas -->
   <script>
-    (function() {
+    (function () {
       var img = new Image();
       img.src = 'favicon.jpg';
-      img.onload = function() {
+      img.onload = function () {
         var canvas = document.createElement('canvas');
         canvas.width = 64; canvas.height = 64;
         var ctx = canvas.getContext('2d');
@@ -30,7 +32,8 @@
   </script>
   <link rel="icon" type="image/jpeg" href="favicon.jpg">
   <meta property="og:title" content="ZenithAI &amp; Web Craft | Future-Ready AI Services &amp; Web Design">
-  <meta property="og:description" content="A dark luxury tech agency from the future. We build automated systems and stunning web experiences.">
+  <meta property="og:description"
+    content="A dark luxury tech agency from the future. We build automated systems and stunning web experiences.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zenithai-webcraft.com">
   <!-- TODO: Update to absolute URL before launch -->
@@ -38,28 +41,499 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- ===== ZENITH AI WEBCRAFT INTRO STYLES ===== -->
+  <style>
+    /* ── Intro Overlay ──────────────────────────────────────── */
+    #zenith-intro {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #0d0d1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+      pointer-events: all;
+    }
+
+    #zenith-intro.fade-out {
+      animation: introFadeOut 0.5s ease forwards;
+    }
+
+    @keyframes introFadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
+    /* ── Ambient particles ──────────────────────────────────── */
+    .intro-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .intro-particles span {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #00aaff;
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleFly 4s ease-in-out infinite;
+    }
+
+    @keyframes particleFly {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.6;
+      }
+
+      80% {
+        opacity: 0.3;
+      }
+
+      100% {
+        transform: translateY(-120vh) scale(0.3);
+        opacity: 0;
+      }
+    }
+
+    /* ── Gear wrapper ───────────────────────────────────────── */
+    #intro-gear-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0) rotate(-180deg);
+      animation: gearEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+      filter: drop-shadow(0 0 32px #00aaff88);
+    }
+
+    @media (max-width: 767px) {
+      #intro-gear-wrap {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    @keyframes gearEntrance {
+      to {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    /* Removed gear shimmer sweep based on user feedback */
+
+    /* ── Gear SVG spin ──────────────────────────────────────── */
+    #intro-gear-svg {
+      width: 100%;
+      height: 100%;
+      animation: introGearSpin 12s linear 1.4s infinite;
+    }
+
+    @keyframes introGearSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ── Circuit nodes ──────────────────────────────────────── */
+    .cn {
+      animation: nodePulse 0.4s ease both;
+    }
+
+    .cn:nth-child(1) {
+      animation-delay: 0.5s;
+    }
+
+    .cn:nth-child(2) {
+      animation-delay: 0.65s;
+    }
+
+    .cn:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+
+    .cn:nth-child(4) {
+      animation-delay: 0.95s;
+    }
+
+    .cn:nth-child(5) {
+      animation-delay: 1.1s;
+    }
+
+    .cn:nth-child(6) {
+      animation-delay: 1.25s;
+    }
+
+    @keyframes nodePulse {
+      0% {
+        opacity: 0;
+        r: 3;
+      }
+
+      50% {
+        opacity: 1;
+        r: 6;
+        filter: url(#blueGlow);
+      }
+
+      100% {
+        opacity: 0.85;
+        r: 4;
+      }
+    }
+
+    /* ── Global pulse ───────────────────────────────────────── */
+    #intro-logo-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #intro-logo-group.pulse-together {
+      animation: globalPulse 0.6s ease 2.8s both;
+    }
+
+    @keyframes globalPulse {
+      0% {
+        filter: drop-shadow(0 0 0px #00aaff);
+      }
+
+      50% {
+        filter: drop-shadow(0 0 40px #00aaff) drop-shadow(0 0 80px #00aaff66);
+      }
+
+      100% {
+        filter: drop-shadow(0 0 8px #00aaff44);
+      }
+    }
+
+    /* ── ZENITH text ────────────────────────────────────────── */
+    #intro-zenith {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 8vw, 4.5rem);
+      color: #e0e0e0;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      display: flex;
+      overflow: hidden;
+      text-shadow: 0 0 40px #00aaff66, 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    @media (max-width: 767px) {
+      #intro-zenith {
+        font-size: clamp(1.8rem, 10vw, 2.8rem);
+      }
+    }
+
+    .z-letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(60px);
+      animation: letterSlideIn 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .z-letter:nth-child(1) {
+      animation-delay: 1.45s;
+    }
+
+    .z-letter:nth-child(2) {
+      animation-delay: 1.57s;
+    }
+
+    .z-letter:nth-child(3) {
+      animation-delay: 1.69s;
+    }
+
+    .z-letter:nth-child(4) {
+      animation-delay: 1.81s;
+    }
+
+    .z-letter:nth-child(5) {
+      animation-delay: 1.93s;
+    }
+
+    .z-letter:nth-child(6) {
+      animation-delay: 2.05s;
+    }
+
+    @keyframes letterSlideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+        text-shadow: 0 0 20px #00aaff, 0 0 40px #00aaff44;
+      }
+    }
+
+    /* ── AI WEBCRAFT subtext ─────────────────────────────────── */
+    #intro-subtext-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #intro-subtext {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(0.75rem, 2.5vw, 1.1rem);
+      color: #4fc3f7;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: subtextFadeIn 0.5s ease 2.3s forwards;
+    }
+
+    @media (max-width: 767px) {
+      #intro-subtext {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+      }
+    }
+
+    @keyframes subtextFadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* circuit underline */
+    #intro-circuit-line {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #00aaff, #4fc3f7, transparent);
+      width: 0;
+      animation: circuitDraw 0.6s ease 2.55s forwards;
+      box-shadow: 0 0 6px #00aaff;
+    }
+
+    @keyframes circuitDraw {
+      to {
+        width: 100%;
+      }
+    }
+
+    /* ── Phase 2: shrink to navbar ──────────────────────────── */
+    #zenith-intro.phase2 #intro-logo-group {
+      animation: shrinkToNav 0.9s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+    }
+
+    @keyframes shrinkToNav {
+      from {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+      }
+
+      to {
+        transform: scale(0.18) translate(calc(-50vw + 120px), calc(-50vh + 32px));
+        opacity: 0;
+      }
+    }
+
+    /* ── Navbar logo (idle state) ───────────────────────────── */
+    .nav-gear-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-gear-svg {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      animation: navGearSpin 20s linear infinite;
+      filter: drop-shadow(0 0 4px #00aaff66);
+      transition: filter 0.3s ease;
+    }
+
+    @keyframes navGearSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .nav-gear-wrap:hover .nav-gear-svg {
+      animation: navGearSpinFast 2s linear infinite;
+      filter: drop-shadow(0 0 10px #00aaff) drop-shadow(0 0 20px #00aaff66);
+    }
+
+    @keyframes navGearSpinFast {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .nav-zenith-label {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-zenith-label .nz-top {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      color: #e0e0e0;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-zenith-label .nz-bot {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.62rem;
+      color: #4fc3f7;
+      letter-spacing: 0.22em;
+    }
+
+    /* ── Page content hidden during intro ───────────────────── */
+    #page-content {
+      opacity: 0;
+    }
+
+    #page-content.revealed {
+      animation: pageReveal 0.6s ease forwards;
+    }
+
+    @keyframes pageReveal {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <!-- Custom Cursor -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- Splash Screen -->
-  <div class="splash-screen" id="splashScreen">
-    <div class="splash-logo">
-      <img src="logo.jpg" alt="ZenithAI & Web Craft Logo" class="splash-logo-img">
-    </div>
-    <div class="splash-tagline">ZenithAI & Web Craft</div>
-  </div>
+  <!-- ===== ZENITH AI WEBCRAFT ANIMATED INTRO ===== -->
+  <div id="zenith-intro" role="presentation" aria-hidden="true">
+
+    <!-- Ambient particles -->
+    <div class="intro-particles" id="introParticles"></div>
+
+    <!-- Central logo group -->
+    <div id="intro-logo-group" class="pulse-together">
+
+      <!-- SVG Gear -->
+      <div id="intro-gear-wrap">
+        <svg id="intro-gear-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="gearDrop" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="2" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.6" />
+            </filter>
+            <filter id="nodeGlow" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <radialGradient id="gearGrad" cx="30%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#3a3a3a" />
+              <stop offset="20%" stop-color="#2a2a2a" />
+              <stop offset="80%" stop-color="#1a1a1a" />
+              <stop offset="100%" stop-color="#0a0a0a" />
+            </radialGradient>
+          </defs>
+
+          <!-- 3D Dimensional Gear Body (12 Teeth) with Drop Shadow -->
+          <path filter="url(#gearDrop)" fill="url(#gearGrad)" fill-rule="evenodd"
+            d="M 181.20,88.59 L 195.77,93.30 A 96,96 0 0,1 195.77,106.70 L 181.20,111.41 A 82,82 0 0,1 176.03,130.72 L 186.28,142.08 A 96,96 0 0,1 179.59,153.68 L 164.62,150.48 A 82,82 0 0,1 150.48,164.62 L 153.68,179.59 A 96,96 0 0,1 142.08,186.28 L 130.72,176.03 A 82,82 0 0,1 111.41,181.20 L 106.70,195.77 A 96,96 0 0,1 93.30,195.77 L 88.59,181.20 A 82,82 0 0,1 69.28,176.03 L 57.92,186.28 A 96,96 0 0,1 46.32,179.59 L 49.52,164.62 A 82,82 0 0,1 35.38,150.48 L 20.41,153.68 A 96,96 0 0,1 13.72,142.08 L 23.97,130.72 A 82,82 0 0,1 18.80,111.41 L 4.23,106.70 A 96,96 0 0,1 4.23,93.30 L 18.80,88.59 A 82,82 0 0,1 23.97,69.28 L 13.72,57.92 A 96,96 0 0,1 20.41,46.32 L 35.38,49.52 A 82,82 0 0,1 49.52,35.38 L 46.32,20.41 A 96,96 0 0,1 57.92,13.72 L 69.28,23.97 A 82,82 0 0,1 88.59,18.80 L 93.30,4.23 A 96,96 0 0,1 106.70,4.23 L 111.41,18.80 A 82,82 0 0,1 130.72,23.97 L 142.08,13.72 A 96,96 0 0,1 153.68,20.41 L 150.48,35.38 A 82,82 0 0,1 164.62,49.52 L 179.59,46.32 A 96,96 0 0,1 186.28,57.92 L 176.03,69.28 A 82,82 0 0,1 181.20,88.59 Z M 148.00,100 A 48,48 0 1,0 52.00,100 A 48,48 0 1,0 148.00,100 Z" />
+
+          <!-- Thin inner ring highlight to simulate inner rim lighting -->
+          <circle cx="100" cy="100" r="49" fill="none" stroke="#4a4a4a" stroke-width="2" opacity="0.8" />
+          <!-- Inner depth shadow -->
+          <circle cx="100" cy="100" r="47.5" fill="none" stroke="#000000" stroke-width="1" opacity="0.5" />
+
+          <!-- Circuit details inside hollow center -->
+          <g>
+            <!-- 3 Glowing Blue Nodes -->
+            <g filter="url(#nodeGlow)">
+              <circle class="cn" cx="85" cy="85" r="4" fill="#00aaff" />
+              <circle class="cn" cx="100" cy="110" r="4" fill="#00aaff" />
+              <circle class="cn" cx="120" cy="95" r="4" fill="#00aaff" />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- ZENITH text -->
+      <div id="intro-zenith" aria-label="ZENITH">
+        <span class="z-letter">Z</span>
+        <span class="z-letter">E</span>
+        <span class="z-letter">N</span>
+        <span class="z-letter">I</span>
+        <span class="z-letter">T</span>
+        <span class="z-letter">H</span>
+      </div>
+
+      <!-- AI WEBCRAFT subtext -->
+      <div id="intro-subtext-wrap">
+        <div id="intro-subtext">AI&nbsp;&nbsp;WEBCRAFT</div>
+        <div id="intro-circuit-line"></div>
+      </div>
+
+    </div><!-- /intro-logo-group -->
+  </div><!-- /zenith-intro -->
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-logo">
-        <img src="logo.jpg" alt="ZenithAI & Web Craft" class="nav-logo-img">
-        <span class="logo-text">Zenith<span class="logo-ai">AI</span></span>
+      <a href="#hero" class="nav-gear-wrap" id="navLogoLink" aria-label="ZenithAI WebCraft - Home">
+        <!-- Navbar gear (idle slow spin) -->
+        <svg class="nav-gear-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="navGearGrad" cx="30%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#3a3a3a" />
+              <stop offset="20%" stop-color="#2a2a2a" />
+              <stop offset="80%" stop-color="#1a1a1a" />
+              <stop offset="100%" stop-color="#0a0a0a" />
+            </radialGradient>
+            <filter id="navNodeGlow" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur stdDeviation="2" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path fill="url(#navGearGrad)" fill-rule="evenodd"
+            d="M 181.20,88.59 L 195.77,93.30 A 96,96 0 0,1 195.77,106.70 L 181.20,111.41 A 82,82 0 0,1 176.03,130.72 L 186.28,142.08 A 96,96 0 0,1 179.59,153.68 L 164.62,150.48 A 82,82 0 0,1 150.48,164.62 L 153.68,179.59 A 96,96 0 0,1 142.08,186.28 L 130.72,176.03 A 82,82 0 0,1 111.41,181.20 L 106.70,195.77 A 96,96 0 0,1 93.30,195.77 L 88.59,181.20 A 82,82 0 0,1 69.28,176.03 L 57.92,186.28 A 96,96 0 0,1 46.32,179.59 L 49.52,164.62 A 82,82 0 0,1 35.38,150.48 L 20.41,153.68 A 96,96 0 0,1 13.72,142.08 L 23.97,130.72 A 82,82 0 0,1 18.80,111.41 L 4.23,106.70 A 96,96 0 0,1 4.23,93.30 L 18.80,88.59 A 82,82 0 0,1 23.97,69.28 L 13.72,57.92 A 96,96 0 0,1 20.41,46.32 L 35.38,49.52 A 82,82 0 0,1 49.52,35.38 L 46.32,20.41 A 96,96 0 0,1 57.92,13.72 L 69.28,23.97 A 82,82 0 0,1 88.59,18.80 L 93.30,4.23 A 96,96 0 0,1 106.70,4.23 L 111.41,18.80 A 82,82 0 0,1 130.72,23.97 L 142.08,13.72 A 96,96 0 0,1 153.68,20.41 L 150.48,35.38 A 82,82 0 0,1 164.62,49.52 L 179.59,46.32 A 96,96 0 0,1 186.28,57.92 L 176.03,69.28 A 82,82 0 0,1 181.20,88.59 Z M 148.00,100 A 48,48 0 1,0 52.00,100 A 48,48 0 1,0 148.00,100 Z" />
+          <circle cx="100" cy="100" r="49" fill="none" stroke="#4a4a4a" stroke-width="2" opacity="0.8" />
+          <g>
+            <g filter="url(#navNodeGlow)">
+              <circle cx="85" cy="85" r="4" fill="#00aaff" />
+              <circle cx="100" cy="110" r="4" fill="#00aaff" />
+              <circle cx="120" cy="95" r="4" fill="#00aaff" />
+            </g>
+          </g>
+        </svg>
+        <!-- Navbar text label -->
+        <div class="nav-zenith-label">
+          <span class="nz-top">ZENITH</span>
+          <span class="nz-bot">AI WEBCRAFT</span>
+        </div>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
@@ -113,10 +587,11 @@
     <div class="hero-badge" id="heroBadge">
       <svg viewBox="0 0 200 200" class="badge-svg">
         <defs>
-          <path id="circlePath" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/>
+          <path id="circlePath" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0" />
         </defs>
         <text>
-          <textPath href="#circlePath" class="badge-text">✦ Now Accepting Clients · ✦ Now Accepting Clients · </textPath>
+          <textPath href="#circlePath" class="badge-text">✦ Now Accepting Clients · ✦ Now Accepting Clients ·
+          </textPath>
         </text>
       </svg>
       <span class="badge-center">✦</span>
@@ -128,14 +603,35 @@
     <div class="container about-grid">
       <div class="about-text">
         <p class="section-label">Who We Are</p>
-        <h2 class="about-tagline">"Two builders. One mission.<br><span class="gradient-text">Infinite automation.</span>"</h2>
-        <p class="about-description">We're ZenithAI & Web Craft — a dark luxury tech agency from the future. We don't just build websites; we engineer digital ecosystems that think, adapt, and scale. Our mission: to turn your boldest ideas into automated realities that operate while you sleep.</p>
-        <p class="about-description">Founded by two visionaries, we combine cutting-edge AI with premium web experiences to give your business an unfair advantage. <em>Precision over templates. Autonomous logic over manual effort. Future-ready over standard.</em></p>
+        <h2 class="about-tagline">"Two builders. One mission.<br><span class="gradient-text">Infinite
+            automation.</span>"</h2>
+        <p class="about-description">We're ZenithAI & Web Craft — a dark luxury tech agency from the future. We don't
+          just build websites; we engineer digital ecosystems that think, adapt, and scale. Our mission: to turn your
+          boldest ideas into automated realities that operate while you sleep.</p>
+        <p class="about-description">Founded by two visionaries, we combine cutting-edge AI with premium web experiences
+          to give your business an unfair advantage. <em>Precision over templates. Autonomous logic over manual effort.
+            Future-ready over standard.</em></p>
         <div class="usps-grid">
-          <div class="usp-item"><span class="usp-icon">◆</span><div><strong>Precision over Templates</strong><p>We reject drag-and-drop builders. We write code that performs.</p></div></div>
-          <div class="usp-item"><span class="usp-icon">◆</span><div><strong>The 4K Standard</strong><p>Every visual asset rendered to the highest industrial quality.</p></div></div>
-          <div class="usp-item"><span class="usp-icon">◆</span><div><strong>Autonomous Logic</strong><p>We build systems that solve problems for you — automatically.</p></div></div>
-          <div class="usp-item"><span class="usp-icon">◆</span><div><strong>Future-Ready</strong><p>Custom-trained AI models giving you a 3-year lead on competition.</p></div></div>
+          <div class="usp-item"><span class="usp-icon">◆</span>
+            <div><strong>Precision over Templates</strong>
+              <p>We reject drag-and-drop builders. We write code that performs.</p>
+            </div>
+          </div>
+          <div class="usp-item"><span class="usp-icon">◆</span>
+            <div><strong>The 4K Standard</strong>
+              <p>Every visual asset rendered to the highest industrial quality.</p>
+            </div>
+          </div>
+          <div class="usp-item"><span class="usp-icon">◆</span>
+            <div><strong>Autonomous Logic</strong>
+              <p>We build systems that solve problems for you — automatically.</p>
+            </div>
+          </div>
+          <div class="usp-item"><span class="usp-icon">◆</span>
+            <div><strong>Future-Ready</strong>
+              <p>Custom-trained AI models giving you a 3-year lead on competition.</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="about-visual">
@@ -170,7 +666,9 @@
           <div class="card-inner">
             <div class="card-icon">🌐</div>
             <h3 class="card-title">High-Performance Web Development</h3>
-            <p class="card-desc">We don't build simple websites; we engineer high-speed digital infrastructure. Sub-second load times, 100% uptime, and 4K high-fidelity assets — built on React, TypeScript, and Node.js.</p>
+            <p class="card-desc">We don't build simple websites; we engineer high-speed digital infrastructure.
+              Sub-second load times, 100% uptime, and 4K high-fidelity assets — built on React, TypeScript, and Node.js.
+            </p>
           </div>
         </div>
         <div class="service-card" data-animate="stagger">
@@ -178,7 +676,8 @@
           <div class="card-inner">
             <div class="card-icon">🤖</div>
             <h3 class="card-title">Intelligent AI Communication</h3>
-            <p class="card-desc">Bridge the gap between your brand and your customers with AI that speaks your language. Omnichannel agents handling lead qualification, support, and bookings — 24/7, without human oversight.</p>
+            <p class="card-desc">Bridge the gap between your brand and your customers with AI that speaks your language.
+              Omnichannel agents handling lead qualification, support, and bookings — 24/7, without human oversight.</p>
           </div>
         </div>
         <div class="service-card" data-animate="stagger">
@@ -186,7 +685,8 @@
           <div class="card-inner">
             <div class="card-icon">⚙️</div>
             <h3 class="card-title">Autonomous Workflow Systems</h3>
-            <p class="card-desc">Turn your fragmented tools into a single, self-running engine. We use n8n and Zapier to synchronize your CRM, Email, and internal data systems into a unified, zero-friction workflow.</p>
+            <p class="card-desc">Turn your fragmented tools into a single, self-running engine. We use n8n and Zapier to
+              synchronize your CRM, Email, and internal data systems into a unified, zero-friction workflow.</p>
           </div>
         </div>
         <div class="service-card" data-animate="stagger">
@@ -194,26 +694,33 @@
           <div class="card-inner">
             <div class="card-icon">📊</div>
             <h3 class="card-title">Predictive Intelligence & Analytics</h3>
-            <p class="card-desc">Custom dashboards trained on your internal data that forecast sales trends and user behavior — giving you a 3-year lead on the competition through autonomous, data-driven decision-making.</p>
+            <p class="card-desc">Custom dashboards trained on your internal data that forecast sales trends and user
+              behavior — giving you a 3-year lead on the competition through autonomous, data-driven decision-making.
+            </p>
           </div>
         </div>
       </div>
-      
+
       <!-- Services Deep Dive -->
       <div class="services-deep-dive">
-        
+
         <!-- Row 1: High-Performance Web Development -->
         <div class="deep-dive-row odd">
           <div class="dd-content slide-in-left">
             <div class="dd-bg-number">01</div>
             <h3 class="dd-title">High-Performance Web Development</h3>
-            <p class="dd-desc"><strong>The Foundation of Industrial Excellence.</strong> We don't build simple websites; we engineer high-speed digital infrastructure deployed via Vercel and Cloudflare for sub-second load times and 100% uptime.</p>
+            <p class="dd-desc"><strong>The Foundation of Industrial Excellence.</strong> We don't build simple websites;
+              we engineer high-speed digital infrastructure deployed via Vercel and Cloudflare for sub-second load times
+              and 100% uptime.</p>
             <ul class="dd-bullets">
-              <li><span class="bullet-dot">◆</span> Performance-First Logic — clean, scalable code optimized for global distribution</li>
-              <li><span class="bullet-dot">◆</span> 4K High-Fidelity Assets — hyper-realistic renders for industrial-grade visuals</li>
+              <li><span class="bullet-dot">◆</span> Performance-First Logic — clean, scalable code optimized for global
+                distribution</li>
+              <li><span class="bullet-dot">◆</span> 4K High-Fidelity Assets — hyper-realistic renders for
+                industrial-grade visuals</li>
               <li><span class="bullet-dot">◆</span> React, TypeScript & Node.js architecture</li>
               <li><span class="bullet-dot">◆</span> Global CDN deployment via Vercel & Cloudflare</li>
-              <li><span class="bullet-dot">◆</span> Case Study: Built on the same architecture as the Tawakkal Paint House industrial ecosystem</li>
+              <li><span class="bullet-dot">◆</span> Case Study: Built on the same architecture as the Tawakkal Paint
+                House industrial ecosystem</li>
             </ul>
           </div>
           <div class="dd-card-wrapper slide-in-right">
@@ -223,14 +730,14 @@
                 <div class="dd-icon pulse-glow">🌐</div>
                 <div class="dd-badge">Industrial Grade</div>
                 <h4 class="dd-price-label">Starting From</h4>
-                <div class="dd-price">$1,000</div>
+                <div class="dd-price">$500</div>
                 <p class="dd-price-range">Up to $1,500</p>
                 <a href="#contact" class="btn-text">Discuss Scope →</a>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="dd-separator"></div>
 
         <!-- Row 2: Intelligent AI Communication -->
@@ -251,11 +758,15 @@
           <div class="dd-content slide-in-right">
             <div class="dd-bg-number text-right">02</div>
             <h3 class="dd-title">Intelligent AI Communication</h3>
-            <p class="dd-desc"><strong>Human-Like Interaction. 24/7 Conversion.</strong> Deploy intelligent agents that handle lead qualification, customer support, and appointment booking — without human oversight.</p>
+            <p class="dd-desc"><strong>Human-Like Interaction. 24/7 Conversion.</strong> Deploy intelligent agents that
+              handle lead qualification, customer support, and appointment booking — without human oversight.</p>
             <ul class="dd-bullets">
-              <li><span class="bullet-dot">◆</span> Omnichannel Reach — seamless AI across Website, WhatsApp & Instagram</li>
-              <li><span class="bullet-dot">◆</span> AI Voice Receptionists — autonomous agents that sync with your calendar</li>
-              <li><span class="bullet-dot">◆</span> Lead Filtering — smart bots that identify & prioritize high-value prospects</li>
+              <li><span class="bullet-dot">◆</span> Omnichannel Reach — seamless AI across Website, WhatsApp & Instagram
+              </li>
+              <li><span class="bullet-dot">◆</span> AI Voice Receptionists — autonomous agents that sync with your
+                calendar</li>
+              <li><span class="bullet-dot">◆</span> Lead Filtering — smart bots that identify & prioritize high-value
+                prospects</li>
               <li><span class="bullet-dot">◆</span> 24/7 AI Customer Support with zero human oversight</li>
             </ul>
           </div>
@@ -268,11 +779,15 @@
           <div class="dd-content slide-in-left">
             <div class="dd-bg-number">03</div>
             <h3 class="dd-title">Autonomous Workflow Systems</h3>
-            <p class="dd-desc"><strong>Connecting Tools. Eliminating Manual Friction.</strong> Turn your fragmented tools into a single, self-running engine. We use n8n and Zapier to synchronize your CRM, Email, and internal data into one unified pipeline.</p>
+            <p class="dd-desc"><strong>Connecting Tools. Eliminating Manual Friction.</strong> Turn your fragmented
+              tools into a single, self-running engine. We use n8n and Zapier to synchronize your CRM, Email, and
+              internal data into one unified pipeline.</p>
             <ul class="dd-bullets">
               <li><span class="bullet-dot">◆</span> CRM & Pipeline Automation — zero drop-off lead nurturing</li>
-              <li><span class="bullet-dot">◆</span> Business Intelligence — data flows from lead capture to final fulfillment</li>
-              <li><span class="bullet-dot">◆</span> E-commerce Automation — smart cart recovery to inventory management</li>
+              <li><span class="bullet-dot">◆</span> Business Intelligence — data flows from lead capture to final
+                fulfillment</li>
+              <li><span class="bullet-dot">◆</span> E-commerce Automation — smart cart recovery to inventory management
+              </li>
               <li><span class="bullet-dot">◆</span> n8n & Zapier integration across your entire tech stack</li>
             </ul>
           </div>
@@ -306,7 +821,8 @@
               <div class="package-tier-label">Tier 01</div>
               <h3 class="package-name">The Prime Framework</h3>
               <p class="package-focus">Elite Digital Presence &amp; Speed</p>
-              <p class="package-ideal">Ideal for startups and professionals requiring a high-fidelity digital foundation.</p>
+              <p class="package-ideal">Ideal for startups and professionals requiring a high-fidelity digital
+                foundation.</p>
               <div class="package-price-block">
                 <span class="package-price-label">Starting Investment</span>
                 <div class="package-price gradient-text">$1,000 – $1,500</div>
@@ -317,7 +833,8 @@
                 <li><span class="bullet-dot">◆</span> Global CDN deployment for near-instant loading</li>
                 <li><span class="bullet-dot">◆</span> Lead-capture systems with automated email notifications</li>
               </ul>
-              <p class="package-result"><strong>The Result:</strong> A lightning-fast digital asset that establishes immediate market authority.</p>
+              <p class="package-result"><strong>The Result:</strong> A lightning-fast digital asset that establishes
+                immediate market authority.</p>
               <a href="#contact" class="btn btn-outline package-btn">Start Here →</a>
             </div>
           </div>
@@ -337,11 +854,13 @@
               </div>
               <ul class="package-features">
                 <li><span class="bullet-dot">◆</span> Everything in the Prime Framework</li>
-                <li><span class="bullet-dot">◆</span> AI Communication Suite — WhatsApp &amp; Instagram auto-reply agents</li>
+                <li><span class="bullet-dot">◆</span> AI Communication Suite — WhatsApp &amp; Instagram auto-reply
+                  agents</li>
                 <li><span class="bullet-dot">◆</span> 24/7 Website Chatbot trained on your business data</li>
                 <li><span class="bullet-dot">◆</span> Full CRM &amp; Pipeline setup via n8n/Zapier</li>
               </ul>
-              <p class="package-result"><strong>The Result:</strong> A business that captures and qualifies revenue around the clock with zero manual work.</p>
+              <p class="package-result"><strong>The Result:</strong> A business that captures and qualifies revenue
+                around the clock with zero manual work.</p>
               <a href="#contact" class="btn btn-primary package-btn">Activate Engine →</a>
             </div>
           </div>
@@ -353,19 +872,25 @@
               <div class="package-tier-label">Tier 03</div>
               <h3 class="package-name">The Zenith Enterprise</h3>
               <p class="package-focus">Custom AI Solutions &amp; Big Data Architecture</p>
-              <p class="package-ideal">The elite solution for organizations requiring bespoke AI infrastructure and maximum results.</p>
+              <p class="package-ideal">The elite solution for organizations requiring bespoke AI infrastructure and
+                maximum results.</p>
               <div class="package-price-block">
                 <span class="package-price-label">Starting Investment</span>
                 <div class="package-price gradient-text">$5,000+</div>
               </div>
               <ul class="package-features">
                 <li><span class="bullet-dot">◆</span> Everything in the Neural Engine</li>
-                <li><span class="bullet-dot">◆</span> Custom LLM Integration — a private "Company Brain" trained on your data</li>
-                <li><span class="bullet-dot">◆</span> AI Voice Receptionist for high-volume autonomous call handling</li>
-                <li><span class="bullet-dot">◆</span> Predictive Analytics — custom dashboards forecasting sales &amp; behavior</li>
-                <li><span class="bullet-dot">◆</span> Priority Infrastructure — dedicated monitoring &amp; enterprise security</li>
+                <li><span class="bullet-dot">◆</span> Custom LLM Integration — a private "Company Brain" trained on your
+                  data</li>
+                <li><span class="bullet-dot">◆</span> AI Voice Receptionist for high-volume autonomous call handling
+                </li>
+                <li><span class="bullet-dot">◆</span> Predictive Analytics — custom dashboards forecasting sales &amp;
+                  behavior</li>
+                <li><span class="bullet-dot">◆</span> Priority Infrastructure — dedicated monitoring &amp; enterprise
+                  security</li>
               </ul>
-              <p class="package-result"><strong>The Result:</strong> A data-driven enterprise operating on the cutting edge of autonomous technology.</p>
+              <p class="package-result"><strong>The Result:</strong> A data-driven enterprise operating on the cutting
+                edge of autonomous technology.</p>
               <a href="#contact" class="btn btn-outline package-btn">Build Enterprise →</a>
             </div>
           </div>
@@ -452,7 +977,8 @@
           </div>
           <div class="step-content">
             <h3 class="step-title">Discovery Call</h3>
-            <p class="step-desc">We dive deep into your vision, goals, and challenges. No fluff — just sharp questions and genuine understanding of where you want to go.</p>
+            <p class="step-desc">We dive deep into your vision, goals, and challenges. No fluff — just sharp questions
+              and genuine understanding of where you want to go.</p>
           </div>
         </div>
         <div class="timeline-step" data-step="2">
@@ -461,7 +987,8 @@
           </div>
           <div class="step-content">
             <h3 class="step-title">Strategy & Design</h3>
-            <p class="step-desc">We map out the blueprint — from wireframes to system architecture. Every decision is intentional, every element designed for impact.</p>
+            <p class="step-desc">We map out the blueprint — from wireframes to system architecture. Every decision is
+              intentional, every element designed for impact.</p>
           </div>
         </div>
         <div class="timeline-step" data-step="3">
@@ -470,7 +997,8 @@
           </div>
           <div class="step-content">
             <h3 class="step-title">Build & Automate</h3>
-            <p class="step-desc">Our team brings the vision to life — pixel by pixel, function by function. AI integrations and automations are woven in from day one.</p>
+            <p class="step-desc">Our team brings the vision to life — pixel by pixel, function by function. AI
+              integrations and automations are woven in from day one.</p>
           </div>
         </div>
         <div class="timeline-step" data-step="4">
@@ -479,7 +1007,8 @@
           </div>
           <div class="step-content">
             <h3 class="step-title">Launch & Scale</h3>
-            <p class="step-desc">Liftoff. We launch, monitor, optimize, and scale. Your project doesn't just go live — it goes further than you imagined.</p>
+            <p class="step-desc">Liftoff. We launch, monitor, optimize, and scale. Your project doesn't just go live —
+              it goes further than you imagined.</p>
           </div>
         </div>
       </div>
@@ -494,28 +1023,44 @@
       <div class="team-grid">
         <div class="team-card">
           <div class="team-avatar-wrapper">
-            <div class="team-avatar" style="background: linear-gradient(135deg, #0A0A0F, #1A1A2F); border: 2px solid #00F5FF;">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="60" height="60" style="color: #00F5FF; opacity: 0.8;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <div class="team-avatar"
+              style="background: linear-gradient(135deg, #0A0A0F, #1A1A2F); border: 2px solid #00F5FF;">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="60" height="60" style="color: #00F5FF; opacity: 0.8;">
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+              </svg>
             </div>
           </div>
           <h3 class="team-name">Alyan Hassan</h3>
           <p class="team-role">Co-Founder & Lead Web Engineer</p>
-          <p class="team-bio">Obsessed with pixel-perfection and performance. Alyan engineers the lightning-fast front-ends that make jaws drop and conversion rates spike.</p>
+          <p class="team-bio">Obsessed with pixel-perfection and performance. Alyan engineers the lightning-fast
+            front-ends that make jaws drop and conversion rates spike.</p>
           <a href="#" class="team-social" aria-label="LinkedIn Profile">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
           </a>
         </div>
         <div class="team-card">
           <div class="team-avatar-wrapper">
-             <div class="team-avatar" style="background: linear-gradient(135deg, #0A0A0F, #1A1A2F); border: 2px solid #7B2FFF;">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="60" height="60" style="color: #7B2FFF; opacity: 0.8;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <div class="team-avatar"
+              style="background: linear-gradient(135deg, #0A0A0F, #1A1A2F); border: 2px solid #7B2FFF;">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="60" height="60" style="color: #7B2FFF; opacity: 0.8;">
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+              </svg>
             </div>
           </div>
           <h3 class="team-name">Ali Touheed</h3>
           <p class="team-role">Co-Founder & AI Architect</p>
-          <p class="team-bio">The brain behind the bots. Ali architects complex workflow automations and deploys intelligent agents that turn heavy operational costs into pure profit.</p>
+          <p class="team-bio">The brain behind the bots. Ali architects complex workflow automations and deploys
+            intelligent agents that turn heavy operational costs into pure profit.</p>
           <a href="#" class="team-social" aria-label="LinkedIn Profile">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
           </a>
         </div>
       </div>
@@ -557,7 +1102,8 @@
         <!-- JS will duplicate the children to make infinite scroll seamless -->
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"ZenithAI & Web Craft completely transformed our business. The AI chatbot they built handles 80% of our customer inquiries autonomously. Our response time went from hours to seconds."</p>
+          <p class="testimonial-quote">"ZenithAI & Web Craft completely transformed our business. The AI chatbot they
+            built handles 80% of our customer inquiries autonomously. Our response time went from hours to seconds."</p>
           <div class="testimonial-author">
             <div class="author-avatar" style="background: linear-gradient(135deg, #00F5FF, #7B2FFF);">JM</div>
             <div>
@@ -568,7 +1114,8 @@
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"The website they designed is pure art. We've seen a 300% increase in conversions since launch. It doesn't just look incredible — it performs beyond anything we expected."</p>
+          <p class="testimonial-quote">"The website they designed is pure art. We've seen a 300% increase in conversions
+            since launch. It doesn't just look incredible — it performs beyond anything we expected."</p>
           <div class="testimonial-author">
             <div class="author-avatar" style="background: linear-gradient(135deg, #7B2FFF, #00F5FF);">SK</div>
             <div>
@@ -579,7 +1126,8 @@
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"We saved 40+ hours per week with their automation systems. What used to take a full team now runs on autopilot. ZenithAI is the best investment we've made."</p>
+          <p class="testimonial-quote">"We saved 40+ hours per week with their automation systems. What used to take a
+            full team now runs on autopilot. ZenithAI is the best investment we've made."</p>
           <div class="testimonial-author">
             <div class="author-avatar" style="background: linear-gradient(135deg, #00F5FF, #7B2FFF);">DR</div>
             <div>
@@ -590,7 +1138,9 @@
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">"Working with ZenithAI & Web Craft felt like having a Silicon Valley team at our fingertips. They understood our vision instantly and delivered something that exceeded every expectation."</p>
+          <p class="testimonial-quote">"Working with ZenithAI & Web Craft felt like having a Silicon Valley team at our
+            fingertips. They understood our vision instantly and delivered something that exceeded every expectation."
+          </p>
           <div class="testimonial-author">
             <div class="author-avatar" style="background: linear-gradient(135deg, #7B2FFF, #00F5FF);">AL</div>
             <div>
@@ -615,8 +1165,10 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-             <div class="faq-answer-inner">
-              Most standard high-end websites take between 3 to 6 weeks from strategy to go-live. For highly complex web apps or extensive animations, timelines are adjusted appropriately. We are extremely fast compared to traditional agencies.
+            <div class="faq-answer-inner">
+              Most standard high-end websites take between 3 to 6 weeks from strategy to go-live. For highly complex web
+              apps or extensive animations, timelines are adjusted appropriately. We are extremely fast compared to
+              traditional agencies.
             </div>
           </div>
         </div>
@@ -627,7 +1179,9 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              We offer a comprehensive range of AI services including AI receptionists, website chatbots, Instagram auto-reply bots, WhatsApp automation, lead qualification systems, appointment booking automation, 24/7 AI customer support agents, CRM & workflow automation, and AI email automation with smart responses.
+              We offer a comprehensive range of AI services including AI receptionists, website chatbots, Instagram
+              auto-reply bots, WhatsApp automation, lead qualification systems, appointment booking automation, 24/7 AI
+              customer support agents, CRM & workflow automation, and AI email automation with smart responses.
             </div>
           </div>
         </div>
@@ -638,7 +1192,8 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Yes, absolutely. We work with ambitious companies globally. We manage entirely asynchronously with clear communication paths and weekly syncs mapped to your timezone.
+              Yes, absolutely. We work with ambitious companies globally. We manage entirely asynchronously with clear
+              communication paths and weekly syncs mapped to your timezone.
             </div>
           </div>
         </div>
@@ -648,8 +1203,10 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-             <div class="faq-answer-inner">
-              Our pricing is structured in three tiers. The Prime Framework starts from $1,000 to $1,500. The Neural Engine ranges from $2,000 to $3,000. The Zenith Enterprise starts from $5,000 and above, depending on scope and complexity. Book a call for a tailored proposal.
+            <div class="faq-answer-inner">
+              Our pricing is structured in three tiers. The Prime Framework starts from $1,000 to $1,500. The Neural
+              Engine ranges from $2,000 to $3,000. The Zenith Enterprise starts from $5,000 and above, depending on
+              scope and complexity. Book a call for a tailored proposal.
             </div>
           </div>
         </div>
@@ -660,7 +1217,8 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Yes. Both our websites and AI automation systems come with optional low-cost retainer plans ensuring continuous monitoring, minor updates, and scaling of operations as your business grows.
+              Yes. Both our websites and AI automation systems come with optional low-cost retainer plans ensuring
+              continuous monitoring, minor updates, and scaling of operations as your business grows.
             </div>
           </div>
         </div>
@@ -674,7 +1232,8 @@
     <div class="container contact-container">
       <div class="contact-text">
         <h2 class="cta-heading">The future of your<br>business is <span class="gradient-text">autonomous.</span></h2>
-        <p class="cta-sub">Book your Strategic Automation Audit and witness the ZenithAI difference. Our founders will respond within 24 hours.</p>
+        <p class="cta-sub">Book your Strategic Automation Audit and witness the ZenithAI difference. Our founders will
+          respond within 24 hours.</p>
       </div>
       <div class="contact-form-wrapper">
         <form class="contact-form" action="#" method="POST" id="contactForm">
@@ -699,7 +1258,8 @@
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project or goals..."></textarea>
+            <textarea id="message" name="message" rows="4" required
+              placeholder="Tell us about your project or goals..."></textarea>
           </div>
           <button type="submit" class="btn btn-cta" id="submitBtn">
             <span>Book Strategic Audit →</span>
@@ -734,14 +1294,26 @@
         <h4 class="footer-heading">Connect</h4>
         <!-- TODO: Replace with actual social media profile URLs -->
         <div class="social-icons">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter / X">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon"
+            aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon"
+            aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon"
+            aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path
+                d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+            </svg>
           </a>
         </div>
       </div>
@@ -752,5 +1324,102 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- ===== ZENITH INTRO CONTROLLER ===== -->
+  <script>
+    (function () {
+      const intro = document.getElementById('zenith-intro');
+      const navbar = document.getElementById('navbar');
+      const content = document.getElementById('page-content');
+      const splashEl = document.getElementById('splashScreen');
+
+      /* Remove any legacy splash if present */
+      if (splashEl) splashEl.remove();
+
+      /* Wrap all existing page content in #page-content if not already done */
+      /* (We tag the nav + everything after as page content via CSS opacity) */
+
+      /* Generate ambient particles */
+      const particlesContainer = document.getElementById('introParticles');
+      if (particlesContainer) {
+        for (let i = 0; i < 40; i++) {
+          const s = document.createElement('span');
+          s.style.cssText = [
+            'left:' + Math.random() * 100 + '%',
+            'top:' + (60 + Math.random() * 40) + '%',
+            'animation-delay:' + (Math.random() * 3) + 's',
+            'animation-duration:' + (3 + Math.random() * 4) + 's',
+            'opacity:0',
+            'width:' + (1 + Math.random() * 3) + 'px',
+            'height:' + (1 + Math.random() * 3) + 'px',
+          ].join(';');
+          particlesContainer.appendChild(s);
+        }
+      }
+
+      /* Timeline:
+         phase 1 ends ≈ 3.3s (pulse ends at 2.8+0.6, circuit draws by 3.15)
+         0.5s pause → 3.8s
+         phase 2 transition 0.9s → 4.7s
+         navbar fades in, overlay fades out
+      */
+
+      const PAUSE_END = 3800;  // ms – end of phase 1 pause
+      const PHASE2_DUR = 900;   // ms
+      const FADE_OVERLAP = 200;   // ms – navbar starts fading in before overlay gone
+
+      /* Hide navbar initially */
+      navbar.style.opacity = '0';
+      navbar.style.transform = 'translateY(-100%)';
+      navbar.style.transition = 'none';
+
+      setTimeout(function () {
+        /* Phase 2: shrink logo group toward navbar position */
+        intro.classList.add('phase2');
+
+        /* Navbar slides in slightly before overlay fully gone */
+        setTimeout(function () {
+          navbar.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          navbar.style.opacity = '1';
+          navbar.style.transform = 'translateY(0)';
+        }, PHASE2_DUR - FADE_OVERLAP);
+
+        /* Fade out overlay */
+        setTimeout(function () {
+          intro.classList.add('fade-out');
+
+          /* Reveal page content */
+          document.body.style.overflow = '';
+          const allSections = document.querySelectorAll(
+            '.hero, .about, .tech-stack-strip, .services, .portfolio, .process, .team, .stats, .testimonials, .faq, .contact-section, .footer'
+          );
+          allSections.forEach(function (el) {
+            el.style.transition = 'opacity 0.6s ease';
+            el.style.opacity = '1';
+          });
+
+          /* Remove overlay from DOM after fade */
+          setTimeout(function () {
+            intro.remove();
+          }, 600);
+
+        }, PHASE2_DUR);
+
+      }, PAUSE_END);
+
+      /* Prevent scroll during intro */
+      document.body.style.overflow = 'hidden';
+
+      /* Initially hide main content sections */
+      window.addEventListener('DOMContentLoaded', function () {
+        const allSections = document.querySelectorAll(
+          '.hero, .about, .tech-stack-strip, .services, .portfolio, .process, .team, .stats, .testimonials, .faq, .contact-section, .footer'
+        );
+        allSections.forEach(function (el) { el.style.opacity = '0'; });
+      });
+
+    })();
+  </script>
 </body>
+
 </html>
